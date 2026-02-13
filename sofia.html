@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Para Sofia ❤️</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', sans-serif;
+        }
+
+        body{
+            height:100vh;
+            background: linear-gradient(135deg, #ff4d6d, #1a1a1a);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            text-align:center;
+            overflow:hidden;
+        }
+
+        .container{
+            max-width:700px;
+            padding:40px;
+            background:rgba(0,0,0,0.5);
+            border-radius:20px;
+            box-shadow:0 0 30px rgba(0,0,0,0.6);
+            animation:fadeIn 2s ease;
+        }
+
+        h1{
+            font-size:42px;
+            margin-bottom:20px;
+        }
+
+        p{
+            font-size:20px;
+            line-height:1.8;
+            margin-bottom:15px;
+        }
+
+        button{
+            margin-top:25px;
+            padding:15px 30px;
+            border:none;
+            border-radius:10px;
+            font-size:18px;
+            cursor:pointer;
+            background:#ff4d6d;
+            color:white;
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:scale(1.05);
+            background:#ff1e4d;
+        }
+
+        #mensagemFinal{
+            margin-top:25px;
+            font-size:24px;
+            color:#ffd1dc;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(30px);}
+            to{opacity:1; transform:translateY(0);}
+        }
+
+        .hearts{
+            position:fixed;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            pointer-events:none;
+            overflow:hidden;
+        }
+
+        .heart{
+            position:absolute;
+            color:#ff758f;
+            font-size:24px;
+            animation:fall 6s linear infinite;
+        }
+
+        @keyframes fall{
+            0%{transform:translateY(-10%); opacity:1;}
+            100%{transform:translateY(110vh); opacity:0;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+    <h1>Para você, Sofia ❤️</h1>
+
+    <p>
+        Desde que você apareceu na minha vida, tudo ganhou mais cor, mais sentido e mais alegria.
+    </p>
+
+    <p>
+        Seu jeito, seu sorriso e a sua presença transformam meus dias nos melhores que eu poderia viver.
+    </p>
+
+    <p>
+        Eu só queria que você soubesse o quanto é especial para mim.
+    </p>
+
+    <button onclick="mostrarMensagem()">Clique aqui ❤️</button>
+
+    <div id="mensagemFinal"></div>
+</div>
+
+<script>
+    function mostrarMensagem(){
+        document.getElementById("mensagemFinal").innerHTML =
+        "Sofia, eu te amo mais do que qualquer palavra pode explicar! 💖";
+    }
+
+    // Corações caindo
+    function criarCoracao(){
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.getElementById("hearts").appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+</script>
+
+</body>
+</html>
